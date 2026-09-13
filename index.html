@@ -167,22 +167,23 @@
       /* Paper content area */
       .paper {
         background-color: var(--bg-paper);
-        width: 100%;
-        max-width: 680px;
-        padding: 80px 90px;
+        width: min(900px, calc(100vw - 380px));
+        max-width: none;
+        padding: 80px 96px;
         position: relative;
         box-shadow:
           0 2px 4px rgba(0, 0, 0, 0.02),
           0 24px 60px rgba(0, 0, 0, 0.04),
           0 0 0 1px rgba(0, 0, 0, 0.03);
         border-radius: 2px 1px 3px 2px;
-        margin-left: 180px;
+        margin-left: 220px;
       }
 
       @media (max-width: 1200px) {
         .paper {
-          margin-left: 240px;
-          max-width: 600px;
+          width: min(760px, calc(100vw - 300px));
+          padding: 64px 64px;
+          margin-left: 220px;
         }
         .sidebar-photo {
           width: 220px;
