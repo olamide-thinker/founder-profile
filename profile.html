@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olamide Ogundele - Founder Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-wall: #ebe8e1;
+        --bg-paper: #f8f7f3;
+        --ink-main: #2a2825;
+        --ink-faint: #8b877e;
+        --accent-script: #2c4251;
+        --border: rgba(0, 0, 0, 0.08);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-wall);
+        color: var(--ink-main);
+        font-family: "Newsreader", serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 8vh;
+        padding-bottom: 12vh;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      }
+
+      .glow-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120vw;
+        height: 120vh;
+        pointer-events: none;
+        z-index: -1;
+        background: radial-gradient(
+          circle at center,
+          rgba(144, 169, 212, 0.15) 0%,
+          transparent 50%
+        );
+      }
+
+      /* Sidebar Photo & Title */
+      .sidebar-photo {
+        position: fixed;
+        top: 60px;
+        left: 60px;
+        width: 260px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .sidebar-photo-name {
+        position: relative;
+        container-type: inline-size;
+      }
+
+      .sidebar-photo-name::after {
+        position: absolute;
+        inset: 45% 0 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.48)
+        );
+        content: "";
+        pointer-events: none;
+      }
+
+      .full-photo {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 4px;
+        box-shadow:
+          0 12px 24px rgba(0, 0, 0, 0.08),
+          0 4px 8px rgba(0, 0, 0, 0.04);
+        filter: contrast(105%) saturate(90%);
+      }
+
+      .sidebar-title-group {
+        text-align: left;
+        margin-left: 4px; /* Slight optical adjustment */
+      }
+
+      h1.script-title {
+        font-family: "Caveat", cursive;
+        position: absolute;
+        font-size: clamp(1.8rem, 14cqw, 2.8rem);
+        bottom: 4px;
+        left: 50%;
+        width: calc(100% - 8px);
+        color: var(--bg-paper);
+        margin: 0 0 6px 0;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.55);
+        text-align: center;
+        white-space: nowrap;
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+
+      .subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--ink-faint);
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-weight: 500;
+      }
+
+      .subtitle span.dot {
+        width: 3px;
+        height: 3px;
+        background-color: var(--ink-faint);
+        border-radius: 50%;
+        opacity: 0.8;
+      }
+
+      .contact-links {
+        margin-top: 16px;
+        display: flex;
+        gap: 16px;
+      }
+
+      .contact-links a {
+        font-family: "Inter", sans-serif;
+        font-size: 0.75rem;
+        color: var(--ink-faint);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+        transition: all 0.2s ease;
+      }
+
+      .contact-links a:hover {
+        color: var(--accent-script);
+        border-bottom: 1px solid var(--accent-script);
+      }
+
+      /* Paper content area */
+      .paper {
+        background-color: var(--bg-paper);
+        width: 100%;
+        max-width: 680px;
+        padding: 80px 90px;
+        position: relative;
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.02),
+          0 24px 60px rgba(0, 0, 0, 0.04),
+          0 0 0 1px rgba(0, 0, 0, 0.03);
+        border-radius: 2px 1px 3px 2px;
+        margin-left: 180px;
+      }
+
+      @media (max-width: 1200px) {
+        .paper {
+          margin-left: 240px;
+          max-width: 600px;
+        }
+        .sidebar-photo {
+          width: 220px;
+          top: 40px;
+          left: 40px;
+        }
+      }
+
+      @media (max-width: 850px) {
+        body {
+          display: block;
+          padding: 32px 16px 64px;
+        }
+
+        .paper {
+          width: 100%;
+          max-width: 680px;
+          padding: 48px 28px;
+          margin: 32px auto 0;
+        }
+
+        .sidebar-photo {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: min(100%, 360px);
+          margin: 0 auto;
+          align-items: stretch;
+          transform: none;
+        }
+
+        .sidebar-photo-name {
+          width: 100%;
+        }
+
+        .sidebar-title-group {
+          text-align: center;
+          margin-left: 0;
+        }
+
+        .subtitle {
+          justify-content: center;
+          flex-wrap: wrap;
+          row-gap: 6px;
+        }
+
+        .contact-links {
+          justify-content: center;
+          flex-wrap: wrap;
+          row-gap: 10px;
+        }
+      }
+
+      /* Typography */
+      h2 {
+        font-size: 1.35rem;
+        font-weight: 500;
+        margin-top: 0; /* Adjusted since title is moved */
+        margin-bottom: 20px;
+        color: var(--ink-main);
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.75;
+        margin-bottom: 24px;
+        color: var(--ink-main);
+      }
+
+      .lede {
+        font-style: italic;
+        font-size: 1.25rem;
+        line-height: 1.6;
+        color: var(--ink-main);
+        margin-bottom: 32px;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 48px 0;
+      }
+
+      /* Ledger/Status Boxes */
+      .ledger-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      @media (max-width: 600px) {
+        .ledger-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .ledger-box {
+        border: 1px solid var(--border);
+        padding: 24px;
+        background: transparent;
+      }
+
+      .ledger-box h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--ink-faint);
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+
+      .ledger-box p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      /* Modules List */
+      .modules {
+        list-style: none;
+        padding: 0;
+        margin: 32px 0;
+      }
+
+      .modules li {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .modules li:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .module-title {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.1rem;
+      }
+
+      .module-desc {
+        font-size: 1rem;
+        color: #4a4a4a;
+        margin-bottom: 0;
+      }
+
+      /* Footer/Stats */
+      .stats-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 64px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+      }
+
+      .stat {
+        text-align: left;
+      }
+
+      .stat-val {
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--ink-main);
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .stat-label {
+        font-family: "Inter", sans-serif;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--ink-faint);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow-container"></div>
+
+    <div class="sidebar-photo">
+      <div class="sidebar-photo-name">
+        <img
+          src="./passport-photo-full.jpeg"
+          alt="Olamide Ogundele"
+          class="full-photo"
+        />
+        <h1 class="script-title">Olamide Ogundele</h1>
+      </div>
+      <div class="sidebar-title-group">
+        <div class="subtitle">
+          <span>Founder, SyncSalez</span>
+          <span class="dot"></span>
+          <span>Lagos, Nigeria</span>
+        </div>
+        <div class="contact-links">
+          <a
+            href="https://syncsalez.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >syncsalez.com</a
+          >
+          <a href="mailto:olamide@syncsalez.com">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="paper">
+      <div class="ledger-grid">
+        <div class="ledger-box">
+          <h3>Seeking</h3>
+          <p>
+            I've built the app entirely myself. I am seeking a network strong in
+            sales and marketing strategy to help take it to market, and
+            investors to help us scale.
+          </p>
+        </div>
+        <div class="ledger-box">
+          <h3>Offering</h3>
+          <p>
+            I am the technical co-founder. Execution risk is off the table. I
+            also help other founders validate tech stack architecture before
+            building with AI.
+          </p>
+        </div>
+      </div>
+
+      <h2>About Olamide</h2>
+      <p class="lede">
+        I learned to code because I lost everything paying other people to build
+        my first company.
+      </p>
+
+      <p>
+        I wasn't born into a network of wealth or given the kind of education
+        that makes building a company easy. I also have a mind that rejects rote
+        memorization—my brain only retains information when I am deeply excited
+        about solving a specific, complex problem. For years, I struggled to fit
+        into standard academic and professional molds.
+      </p>
+
+      <p>
+        My first real attempt at building a solution was an ed-tech platform. I
+        poured all my money—and borrowed more—into it. It failed after two years
+        because I was relying on developers who didn't care about the vision and
+        wrote bad code. That failure forced my hand. I realized that if I wanted
+        to control my destiny, I had to control the build.
+      </p>
+
+      <p>
+        I left, isolated myself, and taught myself how to code. Today, I am a
+        solo technical founder. Execution risk is off the table because I build
+        it myself.
+      </p>
+
+      <hr />
+
+      <h2>About SyncSalez</h2>
+      <p class="lede">
+        African commerce doesn't happen on websites. It happens on WhatsApp,
+        Instagram, and in fragmented notebooks.
+      </p>
+
+      <p>
+        While working at Polo Luxury and building e-commerce sites for years to
+        survive, I noticed a recurring truth: the websites I built rarely
+        generated the actual sales. The real transactions were happening on
+        social media and third-party platforms. Yet, vendors were trying to
+        reconcile those sales using scattered tools. They were double-entering
+        records in Odoo and physical notebooks, struggling with constant network
+        drops, and fighting out-of-sync online and offline inventory.
+      </p>
+
+      <p>
+        Before writing a single line of code for SyncSalez, I sat down with 50
+        different vendors, large and small, to separate what they wanted from
+        what they actually needed. They needed a system that doesn't force them
+        to change how they sell, but unifies their fragmented operations.
+        SyncSalez blends social media, online storefronts, and offline retail
+        into one seamless, offline-capable database on their phone.
+      </p>
+
+      <ul class="modules">
+        <li>
+          <span class="module-title">Vendor</span>
+          <p class="module-desc">
+            Every seller's catalogue, staff, and storefront settings in one
+            place.
+          </p>
+        </li>
+        <li>
+          <span class="module-title">Flow</span>
+          <p class="module-desc">
+            Automation for the busywork, the same category of tool as
+            Salesforce, built for vendors instead of sales teams.
+          </p>
+        </li>
+        <li>
+          <span class="module-title">Collection</span>
+          <p class="module-desc">
+            A personal, intuitive database for the products, customers, and
+            content a vendor actually works with.
+          </p>
+        </li>
+        <li>
+          <span class="module-title">Pipeline</span>
+          <p class="module-desc">
+            Turns real inventory into a customer pipeline, so offers go out
+            before stock runs out.
+          </p>
+        </li>
+      </ul>
+
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-val">3 Months</span>
+          <span class="stat-label">Live</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val">Active</span>
+          <span class="stat-label">Customers</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val">Bootstrapped</span>
+          <span class="stat-label">Funding</span>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
